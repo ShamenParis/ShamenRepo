@@ -16,7 +16,7 @@
 				"fileName": "EmpTest.csv",
 				"container": "inputdata"
 			},
-			"columnDelimiter": "\t",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
