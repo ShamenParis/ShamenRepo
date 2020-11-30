@@ -1,0 +1,31 @@
+{
+	"name": "EmpData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bsdatalake",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "BolbStorage"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "EmpTest.csv",
+				"container": "inputdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Emp No.\tName",
+				"type": "String"
+			}
+		]
+	}
+}
