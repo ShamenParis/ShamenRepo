@@ -1,0 +1,28 @@
+{
+	"name": "testEmp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Azure SQL DataBase"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "empNo",
+				"type": "char"
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dwh",
+			"table": "testEmp"
+		}
+	}
+}
