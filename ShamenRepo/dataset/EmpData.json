@@ -16,14 +16,18 @@
 				"fileName": "EmpTest.csv",
 				"container": "inputdata"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "\t",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
-				"name": "Emp No.\tName",
+				"name": "Emp No.",
+				"type": "String"
+			},
+			{
+				"name": "Name",
 				"type": "String"
 			}
 		]
