@@ -7,13 +7,25 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "ADFshamen"
 		},
+		"AzureSqlDatabase_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase'"
+		},
+		"OnPreme_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'OnPreme'"
+		},
+		"OnPreme_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPreme'"
+		},
 		"bsdatalake_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'bsdatalake'"
 		},
-		"AzureSqlDatabase_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase'"
+		"OnPreme_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "shame"
 		},
 		"containerUri": {
 			"type": "string",
@@ -42,11 +54,20 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"AzureSqlDatabase_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_connectionString')]"
+					},
 					"bsdatalake_connectionString": {
 						"value": "[parameters('bsdatalake_connectionString')]"
 					},
-					"AzureSqlDatabase_connectionString": {
-						"value": "[parameters('AzureSqlDatabase_connectionString')]"
+					"OnPreme_connectionString": {
+						"value": "[parameters('OnPreme_connectionString')]"
+					},
+					"OnPreme_password": {
+						"value": "[parameters('OnPreme_password')]"
+					},
+					"OnPreme_properties_typeProperties_userName": {
+						"value": "[parameters('OnPreme_properties_typeProperties_userName')]"
 					}
 				}
 			},

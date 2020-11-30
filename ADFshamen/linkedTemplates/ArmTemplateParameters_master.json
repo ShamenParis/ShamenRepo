@@ -5,11 +5,20 @@
 		"factoryName": {
 			"value": "ADFshamen"
 		},
+		"AzureSqlDatabase_connectionString": {
+			"value": ""
+		},
+		"OnPreme_connectionString": {
+			"value": ""
+		},
+		"OnPreme_password": {
+			"value": ""
+		},
 		"bsdatalake_connectionString": {
 			"value": ""
 		},
-		"AzureSqlDatabase_connectionString": {
-			"value": ""
+		"OnPreme_properties_typeProperties_userName": {
+			"value": "shame"
 		},
 		"containerUri": {
 			"value": ""
