@@ -5,7 +5,16 @@
 			"referenceName": "OnPreme",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"OnPremeDBName": "AdventureWorksDW2017"
+				"OnPremeDBName": {
+					"value": "@dataset().OnPremeDBNameDataSet",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"OnPremeDBNameDataSet": {
+				"type": "String",
+				"defaultValue": "AdventureWorksDW2017"
 			}
 		},
 		"folder": {
