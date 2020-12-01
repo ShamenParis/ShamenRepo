@@ -2,12 +2,18 @@
 	"name": "OnPreme",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"OnPremeDBName": {
+				"type": "string",
+				"defaultValue": "AdventureWorksDW2017"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=True;data source=DESKTOP-N0LL1BD;initial catalog=AdventureWorksDW2017",
+			"connectionString": "integrated security=True;data source=DESKTOP-N0LL1BD;initial catalog=@{linkedService().OnPremeDBName}",
 			"userName": "shame",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxNTUwNGNhNy1kM2Q0LTRmYTgtOWM5OS01ZGI4N2E2YWVlZGUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4YmIwYmJkMC1lNTM4LTQ4ODAtODRlMS0wNTViMDhmN2Y5N2YiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "OnPremeSelfHostedIR",
