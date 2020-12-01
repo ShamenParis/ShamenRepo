@@ -3,7 +3,10 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "OnPreme",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"OnPremeDBName": "AdventureWorksDW2017"
+			}
 		},
 		"folder": {
 			"name": "SQL Server"
