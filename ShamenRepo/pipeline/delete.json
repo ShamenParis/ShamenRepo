@@ -26,7 +26,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@variables('Val')",
+						"value": "@equals(variables('Val'),1)",
 						"type": "Expression"
 					},
 					"ifFalseActivities": [
