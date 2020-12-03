@@ -52,11 +52,18 @@
 						{
 							"name": "Condition For Files",
 							"type": "IfCondition",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "set variable for filename",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@equals(substring(string(item()),,5),'Daily')",
+									"value": "@startswith(string(item().name),'D')",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
@@ -86,9 +93,9 @@
 												"type": "DelimitedTextSource",
 												"storeSettings": {
 													"type": "AzureBlobStorageReadSettings",
-													"recursive": false,
+													"recursive": true,
 													"wildcardFileName": {
-														"value": "@activity('FileNames').output",
+														"value": "@variables('FileName')",
 														"type": "Expression"
 													}
 												},
@@ -131,6 +138,19 @@
 										]
 									}
 								]
+							}
+						},
+						{
+							"name": "set variable for filename",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "FileName",
+								"value": {
+									"value": "string(@item().name)",
+									"type": "Expression"
+								}
 							}
 						}
 					]
