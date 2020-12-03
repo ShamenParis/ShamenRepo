@@ -52,14 +52,7 @@
 						{
 							"name": "Condition For Files",
 							"type": "IfCondition",
-							"dependsOn": [
-								{
-									"activity": "set variable for filename",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
@@ -70,7 +63,14 @@
 									{
 										"name": "Move DailyFiles",
 										"type": "Copy",
-										"dependsOn": [],
+										"dependsOn": [
+											{
+												"activity": "Set variable",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
 										"policy": {
 											"timeout": "7.00:00:00",
 											"retry": 0,
@@ -95,7 +95,7 @@
 													"type": "AzureBlobStorageReadSettings",
 													"recursive": true,
 													"wildcardFileName": {
-														"value": "concat(activity('FileNames').name,'.csv')",
+														"value": "@concat(variables('FileName'),'.csv')",
 														"type": "Expression"
 													}
 												},
@@ -136,21 +136,21 @@
 												"type": "DatasetReference"
 											}
 										]
+									},
+									{
+										"name": "Set variable",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "FileName",
+											"value": {
+												"value": "@activity('FileNames').name",
+												"type": "Expression"
+											}
+										}
 									}
 								]
-							}
-						},
-						{
-							"name": "set variable for filename",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "FileName",
-								"value": {
-									"value": "string(@item().name)",
-									"type": "Expression"
-								}
 							}
 						}
 					]
