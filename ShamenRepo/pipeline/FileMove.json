@@ -95,7 +95,7 @@
 													"type": "AzureBlobStorageReadSettings",
 													"recursive": true,
 													"wildcardFileName": {
-														"value": "@variables('FileName')",
+														"value": "concat(@variables('FileName'),'.csv')",
 														"type": "Expression"
 													}
 												},
