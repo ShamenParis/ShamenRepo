@@ -56,7 +56,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@equals(substring(string(item()),1,5),'Daily')",
+									"value": "@equals(substring(string(item()),,5),'Daily')",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
@@ -139,6 +139,9 @@
 		],
 		"variables": {
 			"FileName": {
+				"type": "String"
+			},
+			"ErrorVal": {
 				"type": "String"
 			}
 		},
