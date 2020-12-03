@@ -35,7 +35,15 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink"
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -48,9 +56,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "empNo",
 									"type": "String",
-									"physicalType": "char"
+									"physicalType": "char",
+									"ordinal": 1
 								}
 							},
 							{
@@ -60,9 +68,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Name",
 									"type": "String",
-									"physicalType": "nvarchar"
+									"physicalType": "nvarchar",
+									"ordinal": 2
 								}
 							}
 						],
@@ -81,7 +89,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "testEmp",
+						"referenceName": "ErrorFolder",
 						"type": "DatasetReference"
 					}
 				]
