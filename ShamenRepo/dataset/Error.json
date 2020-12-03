@@ -1,0 +1,25 @@
+{
+	"name": "Error",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bsdatalake",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "BolbStorage"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Error.csv",
+				"container": "error"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
