@@ -71,13 +71,22 @@
 											"secureOutput": false,
 											"secureInput": false
 										},
-										"userProperties": [],
+										"userProperties": [
+											{
+												"name": "Source",
+												"value": "inputdata//"
+											},
+											{
+												"name": "Destination",
+												"value": "dailyout//"
+											}
+										],
 										"typeProperties": {
 											"source": {
 												"type": "DelimitedTextSource",
 												"storeSettings": {
 													"type": "AzureBlobStorageReadSettings",
-													"recursive": true,
+													"recursive": false,
 													"wildcardFileName": {
 														"value": "@activity('FileNames').output",
 														"type": "Expression"
