@@ -63,14 +63,7 @@
 									{
 										"name": "Move DailyFiles",
 										"type": "Copy",
-										"dependsOn": [
-											{
-												"activity": "StoreFileName",
-												"dependencyConditions": [
-													"Succeeded"
-												]
-											}
-										],
+										"dependsOn": [],
 										"policy": {
 											"timeout": "7.00:00:00",
 											"retry": 0,
@@ -86,7 +79,7 @@
 													"type": "AzureBlobStorageReadSettings",
 													"recursive": true,
 													"wildcardFileName": {
-														"value": "@variables('FileName')",
+														"value": "@activity('FileNames').output",
 														"type": "Expression"
 													}
 												},
@@ -127,19 +120,6 @@
 												"type": "DatasetReference"
 											}
 										]
-									},
-									{
-										"name": "StoreFileName",
-										"type": "SetVariable",
-										"dependsOn": [],
-										"userProperties": [],
-										"typeProperties": {
-											"variableName": "FileName",
-											"value": {
-												"value": "@activity('FileNames').output",
-												"type": "Expression"
-											}
-										}
 									}
 								]
 							}
