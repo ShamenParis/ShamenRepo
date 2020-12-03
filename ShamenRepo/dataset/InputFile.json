@@ -1,0 +1,31 @@
+{
+	"name": "InputFile",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bsdatalake",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "BolbStorage"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "inputdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
