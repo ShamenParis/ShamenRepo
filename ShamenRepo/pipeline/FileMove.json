@@ -52,7 +52,14 @@
 						{
 							"name": "Condition For Files",
 							"type": "IfCondition",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Set variable",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
@@ -63,14 +70,7 @@
 									{
 										"name": "Move DailyFiles",
 										"type": "Copy",
-										"dependsOn": [
-											{
-												"activity": "Set variable",
-												"dependencyConditions": [
-													"Succeeded"
-												]
-											}
-										],
+										"dependsOn": [],
 										"policy": {
 											"timeout": "7.00:00:00",
 											"retry": 0,
@@ -95,7 +95,7 @@
 													"type": "AzureBlobStorageReadSettings",
 													"recursive": true,
 													"wildcardFileName": {
-														"value": "@concat(variables('FileName'),'.csv')",
+														"value": "@variables('FileName')",
 														"type": "Expression"
 													}
 												},
@@ -115,6 +115,20 @@
 												}
 											},
 											"enableStaging": false,
+											"logSettings": {
+												"enableCopyActivityLog": true,
+												"copyActivityLogSettings": {
+													"logLevel": "Warning",
+													"enableReliableLogging": false
+												},
+												"logLocationSettings": {
+													"linkedServiceName": {
+														"referenceName": "bsdatalake",
+														"type": "LinkedServiceReference"
+													},
+													"path": "error"
+												}
+											},
 											"translator": {
 												"type": "TabularTranslator",
 												"typeConversion": true,
@@ -136,21 +150,21 @@
 												"type": "DatasetReference"
 											}
 										]
-									},
-									{
-										"name": "Set variable",
-										"type": "SetVariable",
-										"dependsOn": [],
-										"userProperties": [],
-										"typeProperties": {
-											"variableName": "FileName",
-											"value": {
-												"value": "@activity('FileNames').name",
-												"type": "Expression"
-											}
-										}
 									}
 								]
+							}
+						},
+						{
+							"name": "Set variable",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "FileName",
+								"value": {
+									"value": "@item().name",
+									"type": "Expression"
+								}
 							}
 						}
 					]
